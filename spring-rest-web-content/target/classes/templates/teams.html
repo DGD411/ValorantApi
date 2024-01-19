@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Equipos de Valorant</title>
+
+    <!-- Agregamos los enlaces a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-4">
+    <h2>Equipos de Valorant</h2>
+
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>País</th>
+            <th>URL</th>
+            <th>Imagen</th>
+        </tr>
+        </thead>
+        <tbody th:each="team : ${teams}">
+        <tr>
+            <td th:text="${team.id}"></td>
+            <td th:text="${team.name}"></td>
+            <td th:text="${team.country}"></td>
+            <td>
+                <a th:href="${team.url}" target="_blank" rel="noopener noreferrer">
+                    Ver en VLR.gg
+                </a>
+            </td>
+            <td>
+                <img th:src="${team.img}" alt="Imagen del equipo" style="max-width: 100px; max-height: 100px;">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Agregamos el enlace a Bootstrap JS y Popper.js (necesario para Bootstrap 4) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
